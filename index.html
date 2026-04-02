@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Satendra Kumar | Data Analyst Portfolio</title>
+  <!-- Google Fonts & Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0a0a0a;
+      color: #e0e0e0;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    h1, h2, h3 {
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #ffffff;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 5vw, 2.6rem);
+      margin-bottom: 2rem;
+      position: relative;
+      display: inline-block;
+    }
+    h2:after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background: #ff8c00;
+      border-radius: 4px;
+    }
+
+    /* Navbar */
+    .navbar {
+      padding: 1.2rem 0;
+      position: sticky;
+      top: 0;
+      background: rgba(10, 10, 10, 0.96);
+      backdrop-filter: blur(12px);
+      z-index: 100;
+      border-bottom: 1px solid rgba(255, 140, 0, 0.2);
+    }
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #ff8c00, #ffaa33);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 0 8px rgba(255, 140, 0, 0.3);
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.8rem;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #cccccc;
+      transition: all 0.3s;
+      position: relative;
+      padding-bottom: 4px;
+    }
+    .nav-links a:hover {
+      color: #ff8c00;
+      text-shadow: 0 0 5px rgba(255, 140, 0, 0.5);
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #ff8c00;
+      transition: width 0.25s ease;
+      box-shadow: 0 0 4px #ff8c00;
+    }
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* Buttons & icons */
+    .social-icons {
+      display: flex;
+      gap: 1.2rem;
+      margin-top: 1.5rem;
+      justify-content: center;
+    }
+    .social-icons a {
+      color: #ff8c00;
+      font-size: 1.6rem;
+      transition: all 0.3s ease;
+      filter: drop-shadow(0 0 4px rgba(255, 140, 0, 0.4));
+    }
+    .social-icons a:hover {
+      color: #ffaa33;
+      transform: translateY(-4px);
+      filter: drop-shadow(0 0 12px rgba(255, 140, 0, 0.7));
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 3rem 0 4rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 3rem;
+    }
+    .hero-left {
+      flex: 1;
+      text-align: center;
+    }
+    .hero-img {
+      width: 280px;
+      height: 280px;
+      background: linear-gradient(145deg, #1a1a1a, #0a0a0a);
+      border-radius: 40% 60% 65% 35% / 45% 40% 60% 55%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto;
+      overflow: hidden;
+      transition: all 0.4s ease;
+      box-shadow: 0 0 0 3px rgba(255, 140, 0, 0.3), 0 20px 30px -12px rgba(0,0,0,0.5);
+      cursor: pointer;
+    }
+    .hero-img:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 0 4px #ff8c00, 0 25px 35px -12px rgba(255, 140, 0, 0.4);
+      filter: brightness(1.05);
+    }
+    .hero-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: inherit;
+      transition: filter 0.3s;
+    }
+    .hero-img:hover img {
+      filter: brightness(1.08) contrast(1.05);
+    }
+    .hero-right {
+      flex: 1.2;
+    }
+    .hero-right .greeting {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #ff8c00;
+      letter-spacing: 1px;
+      text-shadow: 0 0 3px rgba(255, 140, 0, 0.3);
+    }
+    .hero-right h1 {
+      font-size: clamp(2.5rem, 6vw, 3.8rem);
+      margin: 0.5rem 0 0.3rem;
+      color: #ffffff;
+    }
+    .type-container {
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: #ffaa33;
+      margin: 0.8rem 0 1.2rem;
+      min-height: 70px;
+    }
+    .type-container span {
+      background: #1a1a1a;
+      padding: 0.2rem 0.8rem;
+      border-radius: 40px;
+      display: inline-block;
+      border-left: 2px solid #ff8c00;
+    }
+    .cursor {
+      animation: blink 0.8s infinite;
+      color: #ff8c00;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+    .hero-bio {
+      color: #bbbbbb;
+      margin: 1rem 0;
+      line-height: 1.6;
+    }
+
+    /* Skills Section with bars */
+    .skills-section {
+      background: #111111;
+      padding: 4rem 0;
+      border-radius: 48px;
+      margin: 2rem 0;
+      box-shadow: inset 0 0 30px rgba(255, 140, 0, 0.05), 0 10px 30px rgba(0,0,0,0.3);
+    }
+    .skills-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3rem;
+    }
+    .education-box, .skills-box {
+      flex: 1;
+      background: #0f0f0f;
+      padding: 1.8rem;
+      border-radius: 32px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4), 0 0 0 1px rgba(255, 140, 0, 0.1);
+      transition: box-shadow 0.3s;
+    }
+    .education-box:hover, .skills-box:hover {
+      box-shadow: 0 8px 25px rgba(255, 140, 0, 0.15), 0 0 0 1px rgba(255, 140, 0, 0.3);
+    }
+    .education-box h3, .skills-box h3 {
+      margin-bottom: 1.2rem;
+      font-size: 1.5rem;
+      color: #ffaa33;
+    }
+    .edu-item {
+      margin-bottom: 1.2rem;
+      border-left: 3px solid #ff8c00;
+      padding-left: 1rem;
+      color: #dddddd;
+    }
+    .skill-bar-item {
+      margin-bottom: 1.3rem;
+    }
+    .skill-info {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 5px;
+      font-weight: 500;
+      color: #ffcc88;
+    }
+    .bar-bg {
+      background: #2a2a2a;
+      border-radius: 20px;
+      height: 10px;
+      overflow: hidden;
+      box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
+    }
+    .bar-fill {
+      width: 0%;
+      height: 100%;
+      background: linear-gradient(90deg, #ff8c00, #ffaa33);
+      border-radius: 20px;
+      transition: width 1.2s ease-out;
+      box-shadow: 0 0 6px #ff8c00;
+    }
+
+    /* Experience cards */
+    .exp-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    .exp-card {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      background: #0f0f0f;
+      border-radius: 28px;
+      padding: 1.5rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.4), 0 0 0 1px rgba(255, 140, 0, 0.1);
+      transition: all 0.3s;
+    }
+    .exp-card:hover {
+      transform: translateX(8px);
+      box-shadow: 0 8px 25px rgba(255, 140, 0, 0.2), 0 0 0 1px #ff8c00;
+    }
+    .exp-img {
+      flex: 0.8;
+      text-align: center;
+      background: #1a1a1a;
+      border-radius: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 120px;
+      min-height: 120px;
+      transition: all 0.3s;
+      box-shadow: 0 0 10px rgba(255, 140, 0, 0.2);
+      overflow: hidden;
+    }
+    .exp-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: all 0.3s;
+    }
+    .exp-img i {
+      font-size: 3rem;
+      color: #ff8c00;
+      filter: drop-shadow(0 0 6px rgba(255, 140, 0, 0.5));
+      transition: all 0.3s;
+    }
+    .exp-card:hover .exp-img img {
+      transform: scale(1.08);
+    }
+    .exp-card:hover .exp-img i {
+      transform: scale(1.1);
+      filter: drop-shadow(0 0 12px #ff8c00);
+    }
+    .exp-details {
+      flex: 2;
+    }
+    .exp-details h3 {
+      color: #ffaa33;
+    }
+
+    /* Projects, Certifications, About, Contact */
+    .project-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    .card {
+      background: #0f0f0f;
+      border-radius: 24px;
+      padding: 1.5rem;
+      transition: 0.3s;
+      border: 1px solid rgba(255, 140, 0, 0.15);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.3);
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 30px -12px rgba(255, 140, 0, 0.25), 0 0 0 1px #ff8c00;
+    }
+    .card i, .card h3 {
+      color: #ffaa33;
+    }
+    .cert-badge {
+      background: #1a1a1a;
+      border-radius: 40px;
+      padding: 0.2rem 1rem;
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #ff8c00;
+      border-left: 2px solid #ff8c00;
+    }
+    .about-flex {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2.5rem;
+      align-items: center;
+    }
+    .about-img {
+      flex: 1;
+      text-align: center;
+    }
+    .about-img img {
+      width: 220px;
+      height: 220px;
+      border-radius: 40% 60% 65% 35% / 45% 40% 60% 55%;
+      object-fit: cover;
+      background: #1a1a1a;
+      transition: all 0.4s ease;
+      box-shadow: 0 0 0 3px rgba(255, 140, 0, 0.3), 0 15px 25px rgba(0,0,0,0.4);
+      cursor: pointer;
+    }
+    .about-img img:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 0 4px #ff8c00, 0 20px 30px rgba(255, 140, 0, 0.3);
+      filter: brightness(1.08);
+    }
+    .about-text {
+      flex: 1.5;
+      color: #cccccc;
+    }
+    .contact-flex {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+    .contact-left, .contact-right {
+      flex: 1;
+      background: #0f0f0f;
+      padding: 1.8rem;
+      border-radius: 28px;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.3), 0 0 0 1px rgba(255, 140, 0, 0.1);
+      transition: all 0.3s;
+    }
+    .contact-left:hover, .contact-right:hover {
+      box-shadow: 0 8px 25px rgba(255, 140, 0, 0.2), 0 0 0 1px #ff8c00;
+    }
+    .contact-left i, .contact-right i {
+      color: #ff8c00;
+      margin-right: 8px;
+      filter: drop-shadow(0 0 4px rgba(255, 140, 0, 0.4));
+    }
+    input, textarea {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      margin-bottom: 1rem;
+      border: 1px solid #333;
+      border-radius: 28px;
+      font-family: inherit;
+      background: #1a1a1a;
+      color: #fff;
+      transition: all 0.3s;
+    }
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: #ff8c00;
+      box-shadow: 0 0 8px rgba(255, 140, 0, 0.5);
+    }
+    .btn-submit {
+      background: linear-gradient(135deg, #ff8c00, #e07a00);
+      color: #0a0a0a;
+      border: none;
+      padding: 0.8rem;
+      border-radius: 40px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s;
+      width: 100%;
+      font-size: 1rem;
+      box-shadow: 0 4px 12px rgba(255, 140, 0, 0.3);
+    }
+    .btn-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(255, 140, 0, 0.5);
+      filter: brightness(1.05);
+    }
+    footer {
+      background: #050505;
+      color: #aaa;
+      padding: 2rem 0;
+      text-align: center;
+      margin-top: 3rem;
+      border-radius: 32px 32px 0 0;
+      border-top: 1px solid rgba(255, 140, 0, 0.2);
+    }
+    footer .social-icons a {
+      color: #ff8c00;
+      font-size: 1.3rem;
+    }
+    /* Image placeholder instruction */
+    .image-instruction {
+      background: #1a1a1a;
+      border-left: 3px solid #ff8c00;
+      padding: 0.8rem;
+      margin-top: 1rem;
+      font-size: 0.8rem;
+      color: #ffaa33;
+      border-radius: 12px;
+    }
+    @media (max-width: 780px) {
+      .nav-container { flex-direction: column; gap: 0.8rem; }
+      .hero { flex-direction: column; text-align: center; }
+      .hero-right { text-align: center; }
+      .social-icons { justify-content: center; }
+      .exp-img { min-width: 80px; min-height: 80px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="container nav-container">
+    <div class="logo">SATEndra</div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#education-skills">Education & Skills</a></li>
+      <li><a href="#projects">Project</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#certification">Certification</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+  <!-- Home Section -->
+  <section id="home" class="hero container">
+    <div class="hero-left">
+      <div class="hero-img">
+        <img src="image1.jpg" id="profile-pic">
+      </div>
+      <div class="social-icons">
+        <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      </div>
+   
+    </div>
+    <div class="hero-right">
+      <div class="greeting">Hello, I'm</div>
+      <h1>Satendra Kumar</h1>
+      <div class="type-container">
+        <span id="typed-text"></span><span class="cursor">|</span>
+      </div>
+      <p class="hero-bio">Hello I am Satendra Kumar, having B.Tech in Mechanical Engineering, now currently transforming my career into the IT industry as a Data Analyst. I am skilled in relevant tools like Excel, Power BI, SQLite, Python, etc. I worked as an Operations Assistant in logistics and cargo industries, where I gained real-life experiences and communicated with senior leadership and colleagues. I also played the role of Junior Assistant, handling checking activities and following rules & regulations according to DGFT guidelines.</p>
+    </div>
+  </section>
+
+  <!-- Education & Skills Section -->
+  <section id="education-skills" class="skills-section">
+    <div class="container">
+      <h2>Education & Technical Skills</h2>
+      <div class="skills-wrapper">
+        <div class="education-box">
+          <h3><i class="fas fa-graduation-cap"></i> Education</h3>
+          <div class="edu-item"><strong>Bachelor of Technology in Mechanical Engineering</strong><br>JS Institute of Management and Technology, 2023</div>
+          <div class="edu-item"><strong>Intermediate (Science)</strong><br>State Board, 2017</div>
+          <div class="edu-item"><strong>Matriculation (Science)</strong><br>State Board, 2015</div>
+        </div>
+        <div class="skills-box">
+          <h3><i class="fas fa-chart-line"></i> Core Skills</h3>
+          <div class="skill-bar-item" data-skill="Excel" data-percent="90"><div class="skill-info"><span>Excel</span><span>90%</span></div><div class="bar-bg"><div class="bar-fill"></div></div></div>
+          <div class="skill-bar-item" data-skill="SQLite" data-percent="85"><div class="skill-info"><span>SQLite</span><span>85%</span></div><div class="bar-bg"><div class="bar-fill"></div></div></div>
+          <div class="skill-bar-item" data-skill="Power BI" data-percent="88"><div class="skill-info"><span>Power BI</span><span>88%</span></div><div class="bar-bg"><div class="bar-fill"></div></div></div>
+          <div class="skill-bar-item" data-skill="Python" data-percent="80"><div class="skill-info"><span>Python</span><span>80%</span></div><div class="bar-bg"><div class="bar-fill"></div></div></div>
+          <div class="skill-bar-item" data-skill="Matplotlib" data-percent="78"><div class="skill-info"><span>Matplotlib</span><span>78%</span></div><div class="bar-bg"><div class="bar-fill"></div></div></div>
+          <div class="skill-bar-item" data-skill="Seaborn" data-percent="75"><div class="skill-info"><span>Seaborn</span><span>75%</span></div><div class="bar-bg"><div class="bar-fill"></div></div></div>
+          <div class="skill-bar-item" data-skill="Statistics" data-percent="82"><div class="skill-info"><span>Statistics</span><span>82%</span></div><div class="bar-bg"><div class="bar-fill"></div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section with Images -->
+  <section id="experience" class="container" style="padding: 3rem 0;">
+    <h2>Work Experience</h2>
+    <div class="exp-grid">
+      <div class="exp-card">
+        <div class="exp-img">
+          <img src="exp1.jpg" id="exp-img-1">
+        </div>
+        <div class="exp-details">
+          <h3>Operations Assistant in Air Export - Logistics Industry</h3>
+          <p>New Delhi, India | Dec 2023 – Nov 2024</p>
+          <p>Assisted in day-to-day logistics operations, ensuring smooth coordination of shipments and on-time delivery. Monitored transportation schedules and maintained accurate records of inventory and shipments. Supported process optimization, improving efficiency in warehouse and transportation operations. Communicated with clients and internal teams to resolve operational issues promptly.</p>
+        </div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-img">
+          <img src="exp2.jpg"  id="exp-img-2">
+        </div>
+        <div class="exp-details">
+          <h3>Custom Documentation Assistant in Air Export - Cargo Industry</h3>
+          <p>New Delhi, India | Dec 2024 – Oct 2025</p>
+          <p>Prepared and verified air export documentation including invoices, packing lists, and shipping instructions. Coordinated with customs and freight forwarders to ensure compliance with international shipping regulations. Assisted in tracking shipments, resolving documentation discrepancies, and facilitating smooth cargo clearance. Maintained accurate records and supported the team in timely export operations.</p>
+        </div>
+      </div>
+    </div>
+   
+  </section>
+
+  <!-- Project Section -->
+  <section id="projects" class="container" style="padding: 2rem 0 3rem;">
+    <h2>Featured Projects</h2>
+    <div class="project-cards">
+      <div class="card"><i class="fas fa-chart-simple" style="font-size: 2rem;"></i><h3 style="margin: 0.8rem 0;">E-commerce Sales Analysis</h3><p>Interactive dashboard analyzing sales trends, customer segments, and product performance using Power BI and Python. Provided actionable insights to boost revenue.</p></div>
+      <div class="card"><i class="fas fa-bicycle" style="font-size: 2rem;"></i><h3 style="margin: 0.8rem 0;">Blinkit Delivery Analysis</h3><p>Exploratory data analysis on delivery logs, order patterns, and efficiency metrics. Visualized key KPIs with Matplotlib & Seaborn to recommend operational improvements.</p></div>
+    </div>
+  </section>
+
+  <!-- Certification Section -->
+  <section id="certification" class="container" style="padding: 1rem 0 3rem;">
+    <h2>Certifications</h2>
+    <div class="card" style="max-width: 600px;"><span class="cert-badge"><i class="fab fa-linkedin"></i> LinkedIn Learning</span><h3 style="margin-top: 0.8rem;">Career Essentials in Data Analysis</h3><p>Issued by Microsoft & LinkedIn Learning — 2024. Covers data viz, Excel, SQL, and analytical thinking.</p></div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="container" style="padding: 3rem 0;">
+    <h2>About Me</h2>
+    <div class="about-flex">
+      <div class="about-img">
+        <img src="image2.jpg" id="about-pic">
+      </div>
+      <div class="about-text">
+        <p>I'm Satendra Kumar, a data enthusiast with a background in mechanical engineering and hands-on experience in logistics & cargo operations. I transitioned into data analytics to merge my problem-solving skills with the power of data storytelling. I enjoy uncovering patterns, building dashboards, and simplifying complex datasets.</p>
+        <p>When I'm not analyzing data, I love exploring new tools, contributing to open-source, and mentoring aspiring analysts. Let's connect and create impact!</p>
+      </div>
+    </div>
+ 
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="container" style="padding: 2rem 0 4rem;">
+    <h2>Contact</h2>
+    <div class="contact-flex">
+      <div class="contact-left">
+        <i class="fas fa-map-pin"></i> <strong>Address</strong><br>189 Meer Khalil, Shikohabad, Uttar Pradesh, India - 283135<br><br>
+        <i class="fas fa-envelope"></i> satendra.kumar@example.com<br><br>
+        <i class="fas fa-phone-alt"></i> +91 98765 43210
+      </div>
+      <div class="contact-right">
+        <h3>Send a Query</h3>
+        <form id="queryForm">
+          <input type="text" placeholder="Your Name" id="queryName" required>
+          <input type="email" placeholder="Email" id="queryEmail" required>
+          <input type="tel" placeholder="Phone Number" id="queryPhone">
+          <textarea rows="3" placeholder="Your Query..." id="queryMsg" required></textarea>
+          <button type="submit" class="btn-submit">Send Message <i class="fas fa-paper-plane"></i></button>
+          <div id="formMsg" style="margin-top: 10px;"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <p>© 2025 Satendra Kumar — Data Analyst Portfolio. Built with <i class="fas fa-heart" style="color:#ff8c00;"></i> in India.</p>
+    <div class="social-icons" style="justify-content: center; margin-top: 12px;">
+      <a href="#" style="color:#ff8c00;"><i class="fab fa-github"></i></a>
+      <a href="#" style="color:#ff8c00;"><i class="fab fa-linkedin-in"></i></a>
+      <a href="#" style="color:#ff8c00;"><i class="fab fa-twitter"></i></a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Typing Animation
+  const typedSpan = document.getElementById('typed-text');
+  const phrases = ["Satendra Kumar", "Aspiring Data Analyst | Former Operations Assistant"];
+  let phraseIndex = 0, charIndex = 0, isDeleting = false;
+  function typeEffect() {
+    let current = phrases[phraseIndex];
+    if (isDeleting) {
+      typedSpan.innerText = current.substring(0, charIndex-1);
+      charIndex--;
+    } else {
+      typedSpan.innerText = current.substring(0, charIndex+1);
+      charIndex++;
+    }
+    if (!isDeleting && charIndex === current.length) {
+      isDeleting = true;
+      setTimeout(typeEffect, 1800);
+      return;
+    }
+    if (isDeleting && charIndex === 0) {
+      isDeleting = false;
+      phraseIndex = (phraseIndex + 1) % phrases.length;
+      setTimeout(typeEffect, 200);
+      return;
+    }
+    setTimeout(typeEffect, isDeleting ? 70 : 100);
+  }
+  typeEffect();
+
+  // Skill bars animation on scroll
+  const skillBars = document.querySelectorAll('.skill-bar-item');
+  let animated = false;
+  function animateSkills() {
+    if (animated) return;
+    skillBars.forEach(bar => {
+      const percent = bar.getAttribute('data-percent');
+      const fillDiv = bar.querySelector('.bar-fill');
+      if (fillDiv && percent) fillDiv.style.width = percent + '%';
+    });
+    animated = true;
+  }
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if (entry.isIntersecting) { animateSkills(); observer.disconnect(); } });
+  }, { threshold: 0.3 });
+  const skillsSection = document.querySelector('#education-skills');
+  if (skillsSection) observer.observe(skillsSection);
+
+  // Contact form
+  const form = document.getElementById('queryForm');
+  const msgDiv = document.getElementById('formMsg');
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('queryName').value.trim();
+      const email = document.getElementById('queryEmail').value.trim();
+      const query = document.getElementById('queryMsg').value.trim();
+      if (!name || !email || !query) {
+        msgDiv.innerHTML = '<span style="color:#ff8c00;">All fields required!</span>';
+        return;
+      }
+      msgDiv.innerHTML = '<span style="color:#ffaa33;">✓ Message sent! I will reply soon.</span>';
+      form.reset();
+      setTimeout(() => msgDiv.innerHTML = '', 4000);
+    });
+  }
+
+  // Smooth scroll for nav links
+  document.querySelectorAll('.nav-links a').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href').substring(1);
+      const target = document.getElementById(targetId);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
+</body>
+</html>
